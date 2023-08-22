@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+        name: persvolpod
+spec:
+        replicas: 1
+        selector:
+                matchLabels:
+                        name: deployment
+        template:
+                metadata:
+                        labels:
+                                name: deployment
+                spec:
+                        containers:
+                                - name: c00
+                                  image: ubuntu
+                                  command: ["/bin/bash", "-c", "while true; do echo Technical gufutugu; sleep 5; done"]
+                                  volumeMounts:
+                                          - name: mypd
+                                            mountPath: "/tmp/persistent"
+                        volumes:
+                          - name: mypd
+                            persistentVolumeClaim:
+                                claimName: ebsvolclaim                   

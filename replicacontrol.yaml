@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController     #this defines to create the object of replication type
+metadata:
+  name: nginx
+spec:
+  replicas: 3                       #this element defines the desired no. of pods
+  selector:                             #tells the controller which pods to belong to this rc
+    app: nginx                          #this must match with the labels
+  template:                             # template element defines a template to launch new pods                        
+    metadata:           
+      name: nginx
+      labels:                           #selector value need to match the labels value specified in pod template
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
