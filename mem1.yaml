@@ -1,0 +1,15 @@
+#example for memory range, both limit and request in proper manner
+kind: Pod
+apiVersion: v1
+metadata:
+   name: podformemorylimit
+spec:
+  containers:
+  - name: testcont
+    image: nginx
+    resources:
+      limits:
+        memory: "800Mi"
+      requests:
+        memory: "600Mi"
+

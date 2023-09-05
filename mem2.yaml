@@ -1,0 +1,14 @@
+#example of memory with another condition, In this scenrio, I have incresed limit than default it will throw error because we have setup default memory as 1 Gi, so we have #to define limit below or same to that 
+kind: Pod
+apiVersion: v1
+metadata:
+   name: memorypod
+spec:
+  containers:
+     - name: memorycont
+       image: nginx
+       resources:
+         limits:
+            memory: "1200Mi"
+         requests:
+            memory: "500Mi"       

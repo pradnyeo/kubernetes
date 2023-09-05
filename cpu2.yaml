@@ -1,0 +1,13 @@
+#limit is mentioned but request has not mentioned then requests=limit
+kind: Pod
+apiVersion: v1
+metadata:
+   name: default-cpu-demo-2
+spec:
+   containers:
+   - name: default-cpu-demo-2-ctr
+     image: nginx
+     resources:
+       limits:
+         cpu: "1"
+

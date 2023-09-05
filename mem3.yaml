@@ -1,0 +1,14 @@
+#example of memory limit with different scenrio, in this scenrio we have defined that request value below to the default so it will throw error
+kind: Pod
+apiVersion: v1
+metadata: 
+   name: memorypod
+spec:
+ containers:
+ - name: testcont
+   image: nginx
+   resources:
+     limits:
+       memory: "800Mi"
+     requests:
+       memory: "300Mi"     

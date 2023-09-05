@@ -1,0 +1,13 @@
+#here we will not mention the limit, we mentioned only requests then limit is value is default i.e. unlimited or default value defined by us
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nolimit
+spec:
+  containers:
+  - name: mypodwithnolimit
+    image: nginx
+    resources:
+     requests:
+        cpu: "0.75"
+
